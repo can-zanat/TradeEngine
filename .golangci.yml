@@ -1,0 +1,79 @@
+linters-settings:
+  depguard:
+    list-type: blacklist
+    rules:
+      main:
+        list-mode: lax
+        deny:
+          - pkg: "github.com/sirupsen/logrus"
+            desc: not allowed
+  goconst:
+    min-len: 2
+    min-occurrences: 3
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - performance
+      - style
+  funlen:
+    lines: -1
+    statements: 50
+  lll:
+    line-length: 140
+  nolintlint:
+    require-explanation: true
+    require-specific: true
+  dupl:
+    threshold: 200
+  gocyclo:
+    min-complexity: 20
+
+linters:
+  disable-all: true
+  enable:
+    - bodyclose
+    - depguard
+    - dogsled
+    - dupl
+    - errcheck
+    - copyloopvar
+    - exhaustive
+    - goconst
+    - gocritic
+    - gofmt
+    - goimports
+    - mnd
+    - gocyclo
+    - gosec
+    - gosimple
+    - ineffassign
+    - misspell
+    - nolintlint
+    - nakedret
+    - prealloc
+    - predeclared
+    - revive
+    - staticcheck
+    - stylecheck
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - unused
+    - whitespace
+    - wsl
+
+issues:
+  exclude-rules:
+    - path: _test.go
+      linters:
+        - dupl
+        - bodyclose
+        - errcheck
+        - scopelint
+        - staticcheck
+
+run:
+  issues-exit-code: 1

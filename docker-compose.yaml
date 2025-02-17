@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  tradeengine:
+    build: .
+    container_name: TradeEngine
+    ports:
+      - "9696:9696"
+    networks:
+      - app_network
+    command: "./TradeEngine"
+    environment:
+      MONGO_URI: "mongodb://root:password@mongodb_stream:27017/?replicaSet=rs0&authSource=admin"
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus_tradeengine
+    ports:
+      - "9090:9090"
+    networks:
+      - app_network
+    volumes:
+      - ./.config/prometheus.yml:/etc/prometheus/prometheus.yml
+
+networks:
+  app_network:
+    driver: bridge

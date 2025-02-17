@@ -1,0 +1,8 @@
+# .config/local.yaml
+mongoDB:
+  uri: "mongodb://root:password@localhost:27017/?replicaSet=rs0&authSource=admin"
+
+binance:
+  binanceURL: "https://testnet.binance.vision"
+  apiKey: "W1MIfHz5gOIa07OUHiOmFipmVFt2f5cuEPylXzmxiznzyWFtdbkmj0SuKcmqAG1j"
+  secretKey: "MtWBUhKAn1WflP5wRH9AO6E3k7BFeuVYWBl6Of1w3b2cH8ISGF9qvezilRHvvObz"
